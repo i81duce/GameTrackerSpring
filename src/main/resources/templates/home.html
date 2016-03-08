@@ -1,0 +1,16 @@
+<html>
+<body>
+<form action="/addGame" method="post">
+    <input type="text" placeholder="Game name" name="gameName"/>
+    <input type="text" placeholder="Games platform" name="gamePlatform"/>
+    <input type="number" placeholder="Release Year" name="gameYear"/>
+    <button type="submit">Add Game</button>
+
+    <ol>
+    {{#games}}
+        <li>{{name}} - {{platform}} - {{releaseYear}}</li>
+    {{/games}}
+    </ol>
+</form>
+</body>
+</html>
