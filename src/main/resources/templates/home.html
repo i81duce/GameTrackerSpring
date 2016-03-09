@@ -1,6 +1,18 @@
 <html>
 <body>
+{{^user}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Enter your name" name="userName"/>
+    <button type="submit">Login</button>
+</form>
+{{/user}}
 
+{{#user}}
+Welcome, {{name}}!
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<br><br>
 <a href="/">All</a>
 <a href="/?genre=adventure">Adventure</a>
 <a href="/?genre=rpg">RPG</a>
@@ -34,6 +46,6 @@
         <li>{{name}} - {{genre}} - {{platform}} - {{releaseYear}}</li>
     {{/games}}
     </ol>
-
+{{/user}}
 </body>
 </html>

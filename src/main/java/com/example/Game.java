@@ -1,9 +1,6 @@
 package com.example;//Created by KevinBozic on 3/8/16.
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -22,6 +19,9 @@ public class Game {
     String genre;
 
     int releaseYear;
+
+    @ManyToOne
+    User user;
 
     public Game(String name, String platform, String genre, int releaseYear) {
         this.name = name;

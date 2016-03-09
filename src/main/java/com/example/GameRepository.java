@@ -7,9 +7,10 @@ import java.util.List;
 
 public interface GameRepository extends CrudRepository<Game, Integer> { // creates special interface
     // adding query method
-    List<Game> findByGenre(String genre);
-    List<Game> findByGenreAndReleaseYear(String genre, int releaseYear);
-    List<Game> findByGenreAndReleaseYearIsGreaterThanEqual(String genre, int minReleaseYear);
+    List<Game> findByUser(User user);
+    List<Game> findByUserAndGenre(User user, String genre);
+    List<Game> findByUserAndGenreAndReleaseYear(User user, String genre, int releaseYear);
+    List<Game> findByUserAndGenreAndReleaseYearIsGreaterThanEqual(User user, String genre, int minReleaseYear);
 
     Game findFirstByGenre(String genre);
     int countByGenre(String genre);
