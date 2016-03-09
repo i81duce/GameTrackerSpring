@@ -12,8 +12,19 @@ public class GameTrackerController {
     GameRepository games;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String home(Model model) {
-        model.addAttribute("games", games.findAll());
+    public String home(Model model, String genre, Integer releaseYear, String platform) {
+        if (platform != null) {
+            model.addAttribute("games", games.findByPlatformStartsWith(platform));
+        }
+        else if (genre != null && releaseYear != null) {
+            model.addAttribute("games", games.findByGenreAndReleaseYearIsGreaterThanEqual(genre, releaseYear));
+        }
+        else if (genre != null) {
+            model.addAttribute("games", games.findByGenre(genre));
+        }
+        else {
+            model.addAttribute("games", games.findAll());
+        }
         return "home";
     }
 
@@ -23,4 +34,6 @@ public class GameTrackerController {
         games.save(game);
         return "redirect:/";
     }
+
+    // maybe add delete route later on
 }

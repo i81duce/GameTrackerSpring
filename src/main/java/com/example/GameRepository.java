@@ -1,7 +1,20 @@
 package com.example;//Created by KevinBozic on 3/8/16.
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface GameRepository extends CrudRepository<Game, Integer> { // creates special interface
+import java.util.List;
 
+public interface GameRepository extends CrudRepository<Game, Integer> { // creates special interface
+    // adding query method
+    List<Game> findByGenre(String genre);
+    List<Game> findByGenreAndReleaseYear(String genre, int releaseYear);
+    List<Game> findByGenreAndReleaseYearIsGreaterThanEqual(String genre, int minReleaseYear);
+
+    Game findFirstByGenre(String genre);
+    int countByGenre(String genre);
+    List<Game> findByGenreOrderByNameAsc(String genre);
+
+    @Query("SELECT g FROM Game g WHERE g.platform LIKE ?1%")
+    List<Game> findByPlatformStartsWith(String platform);
 }

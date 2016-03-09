@@ -1,5 +1,13 @@
 <html>
 <body>
+
+<a href="/">All</a>
+<a href="/?genre=adventure">Adventure</a>
+<a href="/?genre=rpg">RPG</a>
+<a href="/?genre=strategy">Strategy</a>
+<a href="/?genre=shooter">Shooter</a>
+<a href="/?genre=racing">Racing</a>
+
 <form action="/addGame" method="post">
     <input type="text" placeholder="Game name" name="gameName"/>
     <select name="gameGenre"> <!-- select creates dropdown menu-->
@@ -23,7 +31,7 @@
 
     <ol>
     {{#games}}
-        <li>{{name}} - {{platform}} - {{releaseYear}}</li>
+        <li>{{name}} - {{genre}} - {{platform}} - {{releaseYear}}</li>
     {{/games}}
     </ol>
 
