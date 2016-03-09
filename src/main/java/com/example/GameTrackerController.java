@@ -18,9 +18,9 @@ public class GameTrackerController {
     }
 
     @RequestMapping(path = "/addGame", method = RequestMethod.POST)
-    public String addGame(String gameName, String gamePlatform, int gameYear) { // matches html
-        Game game = new Game(gameName, gamePlatform, gameYear);
+    public String addGame(String gameName, String gamePlatform, String gameGenre, int gameYear) { // matches html
+        Game game = new Game(gameName, gamePlatform, gameGenre, gameYear);
         games.save(game);
-        return "/redirect:/";
+        return "redirect:/";
     }
 }
