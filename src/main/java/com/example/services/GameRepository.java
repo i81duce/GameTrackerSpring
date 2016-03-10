@@ -1,5 +1,7 @@
-package com.example;//Created by KevinBozic on 3/8/16.
+package com.example.services;//Created by KevinBozic on 3/8/16.
 
+import com.example.entities.Game;
+import com.example.entities.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

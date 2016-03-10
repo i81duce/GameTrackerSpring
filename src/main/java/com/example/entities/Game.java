@@ -1,7 +1,6 @@
-package com.example;//Created by KevinBozic on 3/8/16.
+package com.example.entities;//Created by KevinBozic on 3/8/16.
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Game {
@@ -23,11 +22,12 @@ public class Game {
     @ManyToOne
     User user;
 
-    public Game(String name, String platform, String genre, int releaseYear) {
+    public Game(String name, String platform, String genre, int releaseYear, User user) {
         this.name = name;
         this.platform = platform;
         this.genre = genre;
         this.releaseYear = releaseYear;
+        this.user = user;
     }
 
     public Game() {

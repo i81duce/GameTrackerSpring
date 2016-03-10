@@ -1,8 +1,7 @@
-package com.example;//Created by KevinBozic on 3/9/16.
+package com.example.services;//Created by KevinBozic on 3/9/16.
 
+import com.example.entities.User;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
     User findFirstByName(String userName);
